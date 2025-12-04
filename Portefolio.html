@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Si ali Abdelkader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title h1 {
+            font-size: 1.875rem;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .header-title p {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .menu-toggle:hover {
+            background: #f1f5f9;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        nav button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: none;
+            color: #334155;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        nav button:hover {
+            background: #f1f5f9;
+        }
+
+        nav button.active {
+            background: #10b981;
+            color: white;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+
+        .mobile-nav {
+            display: none;
+            padding: 0 1.5rem 1rem;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-nav button {
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card h2 {
+            font-size: 1.875rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .profile-text {
+            color: #334155;
+            line-height: 1.75;
+        }
+
+        .timeline-item {
+            border-left: 4px solid #10b981;
+            padding-left: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item.blue {
+            border-left-color: #3b82f6;
+        }
+
+        .timeline-period {
+            font-size: 0.875rem;
+            color: #10b981;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item.blue .timeline-period {
+            color: #3b82f6;
+        }
+
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-subtitle {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-list {
+            list-style: disc;
+            margin-left: 1.25rem;
+            color: #334155;
+        }
+
+        .timeline-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-card {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: #f0fdf4;
+        }
+
+        .skill-card.blue {
+            background: #eff6ff;
+        }
+
+        .skill-card.purple {
+            background: #faf5ff;
+        }
+
+        .skill-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card p {
+            font-size: 0.875rem;
+            color: #334155;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+        }
+
+        .cert-icon {
+            color: #10b981;
+            width: 24px;
+            height: 24px;
+        }
+
+        .bullet-list {
+            margin-left: 1.5rem;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .bullet-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-box {
+            background: #f0fdf4;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-box p {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .competence-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s;
+        }
+
+        .competence-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .comp-section {
+            margin-bottom: 1rem;
+        }
+
+        .comp-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .comp-label.green {
+            color: #10b981;
+        }
+
+        .comp-label.blue {
+            color: #3b82f6;
+        }
+
+        .comp-label.purple {
+            color: #a855f7;
+        }
+
+        .comp-text {
+            color: #334155;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-hidden {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-title h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-content {
+                padding: 1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-title">
+                <h1>Si ali Abdelkader</h1>
+                <p>Étudiant BTS SIO SISR</p>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMobileMenu()">
+                <span id="menu-icon">☰</span>
+            </button>
+
+            <nav id="desktop-nav">
+                <button class="active" onclick="showSection('cv')">
+                    📄 CV
+                </button>
+                <button onclick="showSection('stage')">
+                    💼 Stage
+                </button>
+                <button onclick="showSection('competences')">
+                    📚 Compétences
+                </button>
+                <button onclick="showSection('veille')">
+                    👁️ Veille Technologique
+                </button>
+            </nav>
+        </div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <button class="active" onclick="showSection('cv'); toggleMobileMenu()">
+                📄 CV
+            </button>
+            <button onclick="showSection('stage'); toggleMobileMenu()">
+                💼 Stage
+            </button>
+            <button onclick="showSection('competences'); toggleMobileMenu()">
+                📚 Compétences
+            </button>
+            <button onclick="showSection('veille'); toggleMobileMenu()">
+                👁️ Veille Technologique
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section CV -->
+        <div id="section-cv">
+            <div class="card">
+                <h2>Profil</h2>
+                <p class="profile-text">
+                    Étudiant en BTS Services Informatiques aux Organisations option SISR (Solutions d'Infrastructure, 
+                    Systèmes et Réseaux). Passionné par l'administration réseau et la cybersécurité, je souhaite 
+                    développer mes compétences techniques au sein d'une équipe dynamique et contribuer à la gestion 
+                    et la sécurisation d'infrastructures informatiques.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Formation</h2>
+                <div class="timeline-item">
+                    <p class="timeline-period">Septembre 2024 - Juillet 2025</p>
+                    <h3 class="timeline-title">BTS SIO option SISR (2ème année)</h3>
+                    <p class="timeline-subtitle">Campus de La Châtaigneraie - Le Mesnil-Esnard</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-period">Septembre 2023 - Juillet 2024</p>
+                    <h3 class="timeline-title">BTS SIO option SISR (1ère année)</h3>
+                    <p class="timeline-subtitle">Campus de La Châtaigneraie - Le Mesnil-Esnard</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-period">Septembre 2022 - Juillet 2023</p>
+                    <h3 class="timeline-title">BAC Général : Mathématiques, Sciences de l'ingénieur</h3>
+                    <p class="timeline-subtitle">Lycée Blaise Pascal</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Expériences Professionnelles</h2>
+                <div class="timeline-item blue">
+                    <p class="timeline-period">Mai 2025 - Juin 2025</p>
+                    <h3 class="timeline-title">Stage de 1ʳᵉ année – Administration réseau</h3>
+                    <p class="timeline-subtitle">Mairie de Darnétal</p>
+                    <ul class="timeline-list">
+                        <li>Gestion du parc informatique</li>
+                        <li>Configuration et supervision d'équipements réseau</li>
+                        <li>Assistance aux utilisateurs</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item blue">
+                    <p class="timeline-period">Janvier 2024 - Avril 2025</p>
+                    <h3 class="timeline-title">Développeur web, Micro-entreprise</h3>
+                    <ul class="timeline-list">
+                        <li>Développement front-end et back-end (HTML, CSS, PHP)</li>
+                        <li>Gestion de bases de données</li>
+                        <li>Analyse des besoins clients</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Mes Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <svg class="skill-icon" fill="none" stroke="#10b981" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <h3>Réseaux & Sécurité</h3>
+                        <p>Cisco (ACL, Routage), Addressage IP</p>
+                    </div>
+
+                    <div class="skill-card blue">
+                        <svg class="skill-icon" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                        <h3>Systèmes & OS</h3>
+                        <p>Linux, Windows Server (DNS, AD, DHCP)</p>
+                    </div>
+
+                    <div class="skill-card purple">
+                        <svg class="skill-icon" fill="none" stroke="#a855f7" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <h3>Virtualisation</h3>
+                        <p>VMware, Clonezilla, FOG, GLPI</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>Certification PIX</span>
+                    </div>
+                    <div class="cert-item">
+                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>Certification MOC de l'ANSSI</span>
+                    </div>
+                    <div class="cert-item">
+                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>RGPD</span>
+                    </div>
+                    <div class="cert-item">
+                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>Cisco</span>
+                    </div>
+                    <div class="cert-item">
+                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>Powershell</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Stage -->
+        <div id="section-stage" class="section-hidden">
+            <div class="card">
+                <h2>Stage de 1ʳᵉ année</h2>
+                <p class="timeline-period" style="margin-bottom: 0.5rem;">Mai 2025 - Juin 2025</p>
+                <p style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1.5rem;">
+                    Administration réseau - Mairie de Darnétal
+                </p>
+
+                <h3>Synthèse des Activités</h3>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <p>Participation à la gestion du parc informatique : installation, maintenance et dépannage de postes de travail</p>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <p>Configuration et supervision d'équipements réseau (switchs, routeurs, bornes Wi-Fi)</p>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <p>Assistance aux utilisateurs et gestion d'incidents techniques</p>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <p>Contribution à la préparation de réunions et interventions techniques avec des prestataires (Orange, URBA)</p>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <p>Découverte et application de bonnes pratiques en cybersécurité et intelligence artificielle appliquée à l'informatique</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <p>📄 Attestation de stage disponible sur demande</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Compétences -->
+        <div id="section-competences" class="section-hidden">
+            <div class="card">
+                <h2>Référentiel des Compétences</h2>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">BTS Services Informatiques aux Organisations - Option SISR</p>
+            </div>
+
+            <div class="competence-card">
+                <h3>1. Gérer le patrimoine informatique</h3>
+                <div class="comp-section">
+                    <p class="comp-label green">Compétence mise en œuvre</p>
+                    <p class="comp-text">Exploiter des référentiels, normes et standards</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label blue">Réalisations professionnelles</p>
+                    <p class="comp-text">TP sur le morpion et le quizz</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label purple">Documents associés</p>
+                    <p class="comp-text">Livre C# partie 1 et 2</p>
+                </div>
+            </div>
+
+            <div class="competence-card">
+                <h3>2. Répondre aux incidents et assister les utilisateurs</h3>
+                <div class="comp-section">
+                    <p class="comp-label green">Compétence mise en œuvre</p>
+                    <p class="comp-text">Traiter des demandes concernant les services réseaux</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label blue">Réalisations professionnelles</p>
+                    <p class="comp-text">TP 02b – LAMP GLPI</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label purple">Documents associés</p>
+                    <p class="comp-text">La gestion des Incidents avec GLPI</p>
+                </div>
+            </div>
+
+            <div class="competence-card">
+                <h3>3. Développer la présence en ligne</h3>
+                <div class="comp-section">
+                    <p class="comp-label green">Compétence mise en œuvre</p>
+                    <p class="comp-text">Participer à l'évolution d'un site web</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label blue">Réalisations professionnelles</p>
+                    <p class="comp-text">TP SiteCyberNews dynamique – V3</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label purple">Documents associés</p>
+                    <p class="comp-text">Documentation dynamisation PHP</p>
+                </div>
+            </div>
+
+            <div class="competence-card">
+                <h3>4. Travailler en mode projet</h3>
+                <div class="comp-section">
+                    <p class="comp-label green">Compétence mise en œuvre</p>
+                    <p class="comp-text">Évaluer les indicateurs de suivi d'un projet</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label blue">Réalisations professionnelles</p>
+                    <p class="comp-text">Site web en équipe avec Trello</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label purple">Documents associés</p>
+                    <p class="comp-text">Documentation dynamisation PHP</p>
+                </div>
+            </div>
+
+            <div class="competence-card">
+                <h3>5. Mettre à disposition un service informatique</h3>
+                <div class="comp-section">
+                    <p class="comp-label green">Compétence mise en œuvre</p>
+                    <p class="comp-text">Déployer un service</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label blue">Réalisations professionnelles</p>
+                    <p class="comp-text">TP Sauvegarde d'un ordinateur (FOG)</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label purple">Documents associés</p>
+                    <p class="comp-text">Sauvegarde d'un ordinateur</p>
+                </div>
+            </div>
+
+            <div class="competence-card">
+                <h3>6. Organiser son développement professionnel</h3>
+                <div class="comp-section">
+                    <p class="comp-label green">Compétence mise en œuvre</p>
+                    <p class="comp-text">Mettre en œuvre des outils de veille</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label blue">Réalisations professionnelles</p>
+                    <p class="comp-text">TP 07 – Veille 01</p>
+                </div>
+                <div class="comp-section">
+                    <p class="comp-label purple">Documents associés</p>
+                    <p class="comp-text">Présentation des oraux de veille</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Veille -->
+        <div id="section-veille" class="section-hidden">
+            <div class="card">
+                <h2>Veille Technologique</h2>
+                <p style="font-size: 1.25rem; color: #10b981; font-weight: 600; margin-bottom: 1.5rem;">
+                    🧠 L'intelligence artificielle dans la cybersécurité
+                </p>
+
+                <h3>Solutions basées sur l'IA</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Solution</th>
+                                <th>Type d'IA</th>
+                                <th>Usage principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 600;">Darktrace</td>
+                                <td>IA comportementale auto-apprenante</td>
+                                <td>Analyse du trafic réseau, détection d'anomalies</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600;">CrowdStrike Falcon</td>
+                                <td>IA analytique + machine learning</td>
+                                <td>Analyse du trafic réseau, détection d'anomalies</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Article 1</h3>
+                <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">
+                    Cybersécurité 2025 : l'IA redéfinit la menace
+                </p>
+                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem;">
+                    Date : 24 février 2025 | Source : CiberObs
+                </p>
+                
+                <div style="margin-bottom: 1rem;">
+                    <p style="color: #334155; margin-bottom: 0.5rem;">
+                        <strong>Résumé :</strong> L'intelligence artificielle est devenue une arme à double tranchant dans la cybersécurité. 
+                        Utilisée pour renforcer les défenses, elle est aussi exploitée par les cybercriminels pour des attaques plus 
+                        sophistiquées.
+                    </p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 0.5rem;">
+                    <p style="font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Analyse :</p>
+                    <ul style="color: #334155; font-size: 0.875rem; margin-left: 1.25rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Enjeux :</strong> Adaptation des systèmes face aux attaques automatisées</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Risques :</strong> Augmentation des attaques ciblées difficiles à détecter</li>
+                        <li><strong>Opportunités :</strong> Développement de solutions de sécurité basées sur l'IA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Article 2</h3>
+                <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">
+                    Sommet pour l'action sur l'intelligence artificielle
+                </p>
+                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem;">
+                    Date : 11 février 2025 | Source : SGDSN
+                </p>
+                
+                <div>
+                    <p style="color: #334155;">
+                        <strong>Résumé :</strong> Ce sommet international a abordé les enjeux critiques de l'IA dans la 
+                        cybersécurité, mettant en avant la nécessité de cadres de confiance, de mécanismes d'évaluation des systèmes 
+                        d'IA et d'une coopération internationale renforcée.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showSection(sectionName) {
+            // Masquer toutes les sections
+            document.querySelectorAll('[id^="section-"]').forEach(section => {
+                section.classList.add('section-hidden');
+            });
+
+            // Afficher la section sélectionnée
+            document.getElementById('section-' + sectionName).classList.remove('section-hidden');
+
+            // Mettre à jour les boutons actifs (desktop)
+            document.querySelectorAll('#desktop-nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('#desktop-nav button')[
+                ['cv', 'stage', 'competences', 'veille'].indexOf(sectionName)
+            ].classList.add('active');
+
+            // Mettre à jour les boutons actifs (mobile)
+            document.querySelectorAll('#mobile-nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('#mobile-nav button')[
+                ['cv', 'stage', 'competences', 'veille'].indexOf(sectionName)
+            ].classList.add('active');
+        }
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileNav.classList.contains('show')) {
+                mobileNav.classList.remove('show');
+                menuIcon.textContent = '☰';
+            } else {
+                mobileNav.classList.add('show');
+                menuIcon.textContent = '✕';
+            }
+        }
+    </script>
+</body>
+</html>
