@@ -1,3 +1,30 @@
+<div class="card">
+                <h2>Référentiel des Compétences - Rectoral</h2>
+                <p style="color: #64748b;">BTS Services Informatiques aux Organisations - Option SISR</p>
+
+                <h3>Tableau de Synthèse E4 intégré</h3>
+                <div style="margin-top: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; height: 800px; width: 100%;">
+                    <iframe 
+                        src="tableau_synthese_E4_complet.pdf.pdf" 
+                        style="width: 100%; height: 100%; border: none;"
+                        title="Tableau de Synthèse E4 - BTS SIO SISR"
+                    >
+                        <p>Votre navigateur ne supporte pas les iframes. <a href="tableau_synthese_E4_complet.pdf.pdf" target="_blank">Téléchargez le PDF ici.</a></p>
+                    </iframe>
+                </div>
+                <p style="font-size: 0.875rem; color: #64748b; margin-top: 1rem;">
+                    *Les tableaux ci-dessous sont la retranscription en HTML du contenu ci-dessus.*
+                </p>
+            </div>
+```Je m'excuse pour le désagrément. L'action précédente avait ajouté un **lien de téléchargement** vers le PDF, ce qui n'entraîne pas l'affichage direct dans la page.
+
+Pour que le tableau de synthèse s'affiche **directement dans votre onglet "Rectoral"** (ce qu'on appelle l'intégration par `<iframe>`), j'ai mis à jour votre fichier `index.html`.
+
+J'ai remplacé le lien de téléchargement par un cadre d'intégration (`<iframe>`) qui affichera le contenu du fichier `tableau_synthese_E4_complet.pdf.pdf` dans la section "Rectoral".
+
+Voici le code mis à jour :
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -538,11 +565,20 @@
             <div class="card">
                 <h2>Référentiel des Compétences - Rectoral</h2>
                 <p style="color: #64748b;">BTS Services Informatiques aux Organisations - Option SISR</p>
-                <div class="info-box">
-                    <p style="font-size: 0.875rem; color: #059669;">
-                        🔗 <a href="tableau_synthese_E4_complet.pdf.pdf" target="_blank" style="color: #059669; font-weight: bold;">Télécharger le Tableau de Synthèse E4 (PDF)</a>
-                    </p>
+
+                <h3>Tableau de Synthèse E4 intégré</h3>
+                <div style="margin-top: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; height: 800px; width: 100%;">
+                    <iframe 
+                        src="tableau_synthese_E4_complet.pdf.pdf" 
+                        style="width: 100%; height: 100%; border: none;"
+                        title="Tableau de Synthèse E4 - BTS SIO SISR"
+                    >
+                        <p>Votre navigateur ne supporte pas les iframes. <a href="tableau_synthese_E4_complet.pdf.pdf" target="_blank">Téléchargez le PDF ici.</a></p>
+                    </iframe>
                 </div>
+                <p style="font-size: 0.875rem; color: #64748b; margin-top: 1rem;">
+                    *Les tableaux ci-dessous sont la retranscription en HTML du contenu ci-dessus.*
+                </p>
             </div>
 
             <div class="card">
@@ -723,6 +759,11 @@
 
         // Écouteur pour le bouton du menu mobile
         document.getElementById('menuBtn').addEventListener('click', toggleMobileMenu);
+
+        // Afficher l'onglet CV au chargement (ou l'onglet par défaut)
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('cv');
+        });
     </script>
 </body>
 </html>
