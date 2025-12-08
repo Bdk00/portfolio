@@ -231,6 +231,16 @@
             padding: 1rem;
             background: #f8fafc;
             border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .cert-item:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .cert-icon {
@@ -269,6 +279,16 @@
         .info-box p {
             font-size: 0.875rem;
             color: #64748b;
+        }
+
+        .info-box a {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
         }
 
         .competence-card {
@@ -335,6 +355,53 @@
             display: none;
         }
 
+        .download-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #10b981;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+        }
+
+        .stage-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stage-image-link {
+            display: block;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: #334155;
+            transition: all 0.3s;
+        }
+
+        .stage-image-link:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stage-image-link svg {
+            margin: 0 auto 0.5rem;
+            color: #3b82f6;
+        }
+
         @media (max-width: 1024px) {
             nav {
                 display: none;
@@ -369,14 +436,22 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
         }
-</style>
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <div class="header-title">
-                <h1>Siali Abdelkader</h1>
+                <h1>Si ali Abdelkader</h1>
                 <p>Étudiant BTS SIO SISR</p>
             </div>
             
@@ -391,8 +466,8 @@
                 <button onclick="showSection('stage')">
                     💼 Stage
                 </button>
-                <button onclick="showSection('competences')">
-                    📚 Compétences
+                <button onclick="showSection('rectoral')">
+                    📚 Rectoral
                 </button>
                 <button onclick="showSection('veille')">
                     👁️ Veille Technologique
@@ -407,8 +482,8 @@
             <button onclick="showSection('stage'); toggleMobileMenu()">
                 💼 Stage
             </button>
-            <button onclick="showSection('competences'); toggleMobileMenu()">
-                📚 Compétences
+            <button onclick="showSection('rectoral'); toggleMobileMenu()">
+                📚 Rectoral
             </button>
             <button onclick="showSection('veille'); toggleMobileMenu()">
                 👁️ Veille Technologique
@@ -503,8 +578,8 @@
                             <polyline points="16 18 22 12 16 6"></polyline>
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
-                        <h3>Virtualisation</h3>
-                        <p>VMware, Clonezilla, FOG, GLPI</p>
+                        <h3>Virtualisation & SIEM</h3>
+                        <p>VMware, Clonezilla, FOG, GLPI, Wazuh</p>
                     </div>
                 </div>
             </div>
@@ -512,41 +587,41 @@
             <div class="card">
                 <h2>Certifications</h2>
                 <div class="cert-grid">
-                    <div class="cert-item">
+                    <a href="#cert-pix" class="cert-item" onclick="showCertImage('cert-pix')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Certification PIX</span>
-                    </div>
-                    <div class="cert-item">
+                    </a>
+                    <a href="#cert-mooc" class="cert-item" onclick="showCertImage('cert-mooc')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Certification MOC de l'ANSSI</span>
-                    </div>
-                    <div class="cert-item">
+                    </a>
+                    <a href="#cert-rgpd" class="cert-item" onclick="showCertImage('cert-rgpd')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>RGPD</span>
-                    </div>
-                    <div class="cert-item">
+                    </a>
+                    <a href="#cert-cisco" class="cert-item" onclick="showCertImage('cert-cisco')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Cisco</span>
-                    </div>
-                    <div class="cert-item">
+                    </a>
+                    <a href="#cert-powershell" class="cert-item" onclick="showCertImage('cert-powershell')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Powershell</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -585,111 +660,205 @@
                 </div>
 
                 <div class="info-box">
-                    <p>📄 Attestation de stage disponible sur demande</p>
+                    <p>📄 <a href="#attestation-stage" onclick="showStageAttestation()">Attestation de stage disponible ici</a></p>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Preuves du Stage</h3>
+                <div class="stage-images">
+                    <a href="#stage-mnef" class="stage-image-link" onclick="showStageImage('mnef')">
+                        <svg width="48" height="48" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p style="font-weight: 600; font-size: 0.875rem;">Étiquette MNEF</p>
+                    </a>
+
+                    <a href="#stage-libersign" class="stage-image-link" onclick="showStageImage('libersign')">
+                        <svg width="48" height="48" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p style="font-weight: 600; font-size: 0.875rem;">Installation LiberSign</p>
+                    </a>
+
+                    <a href="#stage-fortigate" class="stage-image-link" onclick="showStageImage('fortigate')">
+                        <svg width="48" height="48" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p style="font-weight: 600; font-size: 0.875rem;">Firewall Fortigate</p>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Section Compétences -->
-        <div id="section-competences" class="section-hidden">
+        <!-- Section Rectoral -->
+        <div id="section-rectoral" class="section-hidden">
             <div class="card">
-                <h2>Référentiel des Compétences</h2>
+                <h2>Référentiel des Compétences - Rectoral</h2>
                 <p style="color: #64748b; margin-bottom: 1.5rem;">BTS Services Informatiques aux Organisations - Option SISR</p>
+                
+                <a href="#" class="download-btn" onclick="alert('Lien vers le PDF du tableau de synthèse E4')">
+                    📥 Télécharger le tableau complet (PDF)
+                </a>
             </div>
 
-            <div class="competence-card">
-                <h3>1. Gérer le patrimoine informatique</h3>
-                <div class="comp-section">
-                    <p class="comp-label green">Compétence mise en œuvre</p>
-                    <p class="comp-text">Exploiter des référentiels, normes et standards</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label blue">Réalisations professionnelles</p>
-                    <p class="comp-text">TP sur le morpion et le quizz</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label purple">Documents associés</p>
-                    <p class="comp-text">Livre C# partie 1 et 2</p>
-                </div>
-            </div>
-
-            <div class="competence-card">
-                <h3>2. Répondre aux incidents et assister les utilisateurs</h3>
-                <div class="comp-section">
-                    <p class="comp-label green">Compétence mise en œuvre</p>
-                    <p class="comp-text">Traiter des demandes concernant les services réseaux</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label blue">Réalisations professionnelles</p>
-                    <p class="comp-text">TP 02b – LAMP GLPI</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label purple">Documents associés</p>
-                    <p class="comp-text">La gestion des Incidents avec GLPI</p>
-                </div>
-            </div>
-
-            <div class="competence-card">
-                <h3>3. Développer la présence en ligne</h3>
-                <div class="comp-section">
-                    <p class="comp-label green">Compétence mise en œuvre</p>
-                    <p class="comp-text">Participer à l'évolution d'un site web</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label blue">Réalisations professionnelles</p>
-                    <p class="comp-text">TP SiteCyberNews dynamique – V3</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label purple">Documents associés</p>
-                    <p class="comp-text">Documentation dynamisation PHP</p>
-                </div>
-            </div>
-
-            <div class="competence-card">
-                <h3>4. Travailler en mode projet</h3>
-                <div class="comp-section">
-                    <p class="comp-label green">Compétence mise en œuvre</p>
-                    <p class="comp-text">Évaluer les indicateurs de suivi d'un projet</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label blue">Réalisations professionnelles</p>
-                    <p class="comp-text">Site web en équipe avec Trello</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label purple">Documents associés</p>
-                    <p class="comp-text">Documentation dynamisation PHP</p>
-                </div>
-            </div>
-
-            <div class="competence-card">
-                <h3>5. Mettre à disposition un service informatique</h3>
-                <div class="comp-section">
-                    <p class="comp-label green">Compétence mise en œuvre</p>
-                    <p class="comp-text">Déployer un service</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label blue">Réalisations professionnelles</p>
-                    <p class="comp-text">TP Sauvegarde d'un ordinateur (FOG)</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label purple">Documents associés</p>
-                    <p class="comp-text">Sauvegarde d'un ordinateur</p>
+            <div class="card">
+                <h3>Réalisations en milieu professionnel – Première année</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Réalisation</th>
+                                <th>Contexte</th>
+                                <th>Date</th>
+                                <th>Compétences associées</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GLPI - Gestion des incidents (Stage)</td>
+                                <td>Mairie de Darnétal</td>
+                                <td>26/05-21/06/2025</td>
+                                <td>Recenser et identifier les ressources numériques, Exploiter des référentiels, normes et standards, Collecter, suivre et orienter des demandes</td>
+                            </tr>
+                            <tr>
+                                <td>Installation / configuration postes</td>
+                                <td>Mairie de Darnétal</td>
+                                <td>Stage</td>
+                                <td>Recenser et identifier les ressources numériques, Mettre à disposition des utilisateurs un service informatique</td>
+                            </tr>
+                            <tr>
+                                <td>Site HTML - Validation W3C</td>
+                                <td>Projet scolaire</td>
+                                <td>03/02/2025</td>
+                                <td>Participer à la valorisation de l'image de l'organisation, Référencer les services en ligne</td>
+                            </tr>
+                            <tr>
+                                <td>Site CyberNews</td>
+                                <td>Projet scolaire</td>
+                                <td>03/02/2025</td>
+                                <td>Participer à la valorisation de l'image de l'organisation, Référencer les services en ligne</td>
+                            </tr>
+                            <tr>
+                                <td>Site Web en équipe - Trello</td>
+                                <td>Projet scolaire</td>
+                                <td>19/12/2024</td>
+                                <td>Travailler en mode projet, Planifier les activités, Évaluer les indicateurs de suivi</td>
+                            </tr>
+                            <tr>
+                                <td>TP - Hébergement site web</td>
+                                <td>Cours BTS</td>
+                                <td>03/03/2025</td>
+                                <td>Mettre à disposition des utilisateurs un service informatique, Déployer un service</td>
+                            </tr>
+                            <tr>
+                                <td>TP SQL - Grant/Revoke</td>
+                                <td>Cours BTS</td>
+                                <td>03/03/2025</td>
+                                <td>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</td>
+                            </tr>
+                            <tr>
+                                <td>Veille technologique</td>
+                                <td>Cours BTS</td>
+                                <td>09/09/2024</td>
+                                <td>Mettre en œuvre des outils et stratégies de veille informationnelle</td>
+                            </tr>
+                            <tr>
+                                <td>LinkedIn - Recherche de stage</td>
+                                <td>Personnel</td>
+                                <td>02/02/2025</td>
+                                <td>Gérer son identité professionnelle</td>
+                            </tr>
+                            <tr>
+                                <td>PCC - PIX / MOOC</td>
+                                <td>Plateforme</td>
+                                <td>01/01/2025</td>
+                                <td>Mettre en place son environnement d'apprentissage personnel</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <div class="competence-card">
-                <h3>6. Organiser son développement professionnel</h3>
-                <div class="comp-section">
-                    <p class="comp-label green">Compétence mise en œuvre</p>
-                    <p class="comp-text">Mettre en œuvre des outils de veille</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label blue">Réalisations professionnelles</p>
-                    <p class="comp-text">TP 07 – Veille 01</p>
-                </div>
-                <div class="comp-section">
-                    <p class="comp-label purple">Documents associés</p>
-                    <p class="comp-text">Présentation des oraux de veille</p>
+            <div class="card">
+                <h3>Réalisations en milieu professionnel – Seconde année</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Réalisation</th>
+                                <th>Contexte</th>
+                                <th>Date</th>
+                                <th>Compétences associées</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Scripts PowerShell</td>
+                                <td>Cours / TP</td>
+                                <td>2026</td>
+                                <td>Mettre à disposition des utilisateurs un service informatique</td>
+                            </tr>
+                            <tr>
+                                <td>GLPI Agent Windows/Linux</td>
+                                <td>Gestion de parc</td>
+                                <td>2026</td>
+                                <td>Recenser et identifier les ressources numériques, Exploiter des référentiels, normes et standards</td>
+                            </tr>
+                            <tr>
+                                <td>ACL - Permissions avancées</td>
+                                <td>Admin système</td>
+                                <td>2026</td>
+                                <td>Mettre en place et vérifier les niveaux d'habilitation associés à un service</td>
+                            </tr>
+                            <tr>
+                                <td>Active Directory</td>
+                                <td>Win Server</td>
+                                <td>2026</td>
+                                <td>Mettre en place et vérifier les niveaux d'habilitation, Vérifier les conditions de la continuité d'un service</td>
+                            </tr>
+                            <tr>
+                                <td>Serveur DHCP</td>
+                                <td>Win Server</td>
+                                <td>2026</td>
+                                <td>Mettre à disposition des utilisateurs un service informatique</td>
+                            </tr>
+                            <tr>
+                                <td>CloneZilla - Déploiement images</td>
+                                <td>TP Réseau</td>
+                                <td>2026</td>
+                                <td>Gérer des sauvegardes, Déployer un service</td>
+                            </tr>
+                            <tr>
+                                <td>Man-in-the-Middle (MITM)</td>
+                                <td>TP Sécurité</td>
+                                <td>2026</td>
+                                <td>Vérifier le respect des règles d'utilisation des ressources numériques</td>
+                            </tr>
+                            <tr>
+                                <td>Wazuh (SIEM)</td>
+                                <td>TP Cybersécurité</td>
+                                <td>2026</td>
+                                <td>Vérifier le respect des règles d'utilisation, Vérifier les conditions de la continuité d'un service</td>
+                            </tr>
+                            <tr>
+                                <td>Cisco - Routing / Switching</td>
+                                <td>TP Cisco</td>
+                                <td>2026</td>
+                                <td>Traiter des demandes concernant les services réseau et système</td>
+                            </tr>
+                            <tr>
+                                <td>Installation Windows Server + client</td>
+                                <td>TP Systèmes</td>
+                                <td>2026</td>
+                                <td>Mettre à disposition des utilisateurs un service, Accompagner les utilisateurs</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -789,17 +958,20 @@
             document.querySelectorAll('#desktop-nav button').forEach(btn => {
                 btn.classList.remove('active');
             });
-            document.querySelectorAll('#desktop-nav button')[
-                ['cv', 'stage', 'competences', 'veille'].indexOf(sectionName)
-            ].classList.add('active');
+            const desktopButtons = document.querySelectorAll('#desktop-nav button');
+            const sectionIndex = ['cv', 'stage', 'rectoral', 'veille'].indexOf(sectionName);
+            if (desktopButtons[sectionIndex]) {
+                desktopButtons[sectionIndex].classList.add('active');
+            }
 
             // Mettre à jour les boutons actifs (mobile)
             document.querySelectorAll('#mobile-nav button').forEach(btn => {
                 btn.classList.remove('active');
             });
-            document.querySelectorAll('#mobile-nav button')[
-                ['cv', 'stage', 'competences', 'veille'].indexOf(sectionName)
-            ].classList.add('active');
+            const mobileButtons = document.querySelectorAll('#mobile-nav button');
+            if (mobileButtons[sectionIndex]) {
+                mobileButtons[sectionIndex].classList.add('active');
+            }
         }
 
         function toggleMobileMenu() {
@@ -813,6 +985,33 @@
                 mobileNav.classList.add('show');
                 menuIcon.textContent = '✕';
             }
+        }
+
+        function showCertImage(certId) {
+            const messages = {
+                'cert-pix': 'Certification PIX - Niveau Indépendant 2 (416/895 points)\nObtenue le 04/12/2025 au Centre LTP La Châtaigneraie',
+                'cert-mooc': 'Certification MOC de l\'ANSSI (SecNum académie)\n4 modules complétés avec 100% de réussite le 22/01/2025',
+                'cert-rgpd': 'Certification RGPD - Score 100/100',
+                'cert-cisco': 'Certificat Cisco - Introduction à la cybersécurité\nComplété le 08/10/2025 via Cisco Networking Academy',
+                'cert-powershell': 'Certification PowerShell'
+            };
+            alert(messages[certId] || 'Image de certification disponible');
+            return false;
+        }
+
+        function showStageAttestation() {
+            alert('Attestation de stage - Mairie de Darnétal\nDu 26/05/2025 au 21/06/2025\nOption SISR - Campus La Châtaigneraie');
+            return false;
+        }
+
+        function showStageImage(imageId) {
+            const messages = {
+                'mnef': 'Photo : Étiquette MNEF - Câblage réseau',
+                'libersign': 'Photo : Installation de l\'extension LiberSign pour la signature électronique',
+                'fortigate': 'Photo : Configuration du Firewall Fortigate'
+            };
+            alert(messages[imageId] || 'Image du stage');
+            return false;
         }
     </script>
 </body>
