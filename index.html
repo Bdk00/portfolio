@@ -233,8 +233,11 @@
             border-radius: 0.5rem;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
-            color: inherit;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            color: #334155;
         }
 
         .cert-item:hover {
@@ -247,6 +250,7 @@
             color: #10b981;
             width: 24px;
             height: 24px;
+            flex-shrink: 0;
         }
 
         .bullet-list {
@@ -278,56 +282,21 @@
 
         .info-box p {
             font-size: 0.875rem;
-            color: #64748b;
-        }
-
-        .info-box a {
-            color: #10b981;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .info-box a:hover {
-            text-decoration: underline;
-        }
-
-        .competence-card {
-            background: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: box-shadow 0.3s;
-        }
-
-        .competence-card:hover {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .comp-section {
-            margin-bottom: 1rem;
-        }
-
-        .comp-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .comp-label.green {
-            color: #10b981;
-        }
-
-        .comp-label.blue {
-            color: #3b82f6;
-        }
-
-        .comp-label.purple {
-            color: #a855f7;
-        }
-
-        .comp-text {
             color: #334155;
+        }
+
+        .info-box button {
+            background: none;
+            border: none;
+            color: #10b981;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 0.875rem;
+        }
+
+        .info-box button:hover {
+            color: #059669;
         }
 
         table {
@@ -365,6 +334,9 @@
             border-radius: 0.5rem;
             font-weight: 600;
             transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
         .download-btn:hover {
@@ -386,9 +358,10 @@
             background: #f8fafc;
             border-radius: 0.5rem;
             text-align: center;
-            text-decoration: none;
-            color: #334155;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s;
+            width: 100%;
         }
 
         .stage-image-link:hover {
@@ -400,6 +373,12 @@
         .stage-image-link svg {
             margin: 0 auto 0.5rem;
             color: #3b82f6;
+        }
+
+        .stage-image-link p {
+            color: #334155;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
 
         @media (max-width: 1024px) {
@@ -587,41 +566,41 @@
             <div class="card">
                 <h2>Certifications</h2>
                 <div class="cert-grid">
-                    <a href="#cert-pix" class="cert-item" onclick="showCertImage('cert-pix')">
+                    <button class="cert-item" onclick="showCertImage('pix')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Certification PIX</span>
-                    </a>
-                    <a href="#cert-mooc" class="cert-item" onclick="showCertImage('cert-mooc')">
+                    </button>
+                    <button class="cert-item" onclick="showCertImage('mooc')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Certification MOC de l'ANSSI</span>
-                    </a>
-                    <a href="#cert-rgpd" class="cert-item" onclick="showCertImage('cert-rgpd')">
+                    </button>
+                    <button class="cert-item" onclick="showCertImage('rgpd')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>RGPD</span>
-                    </a>
-                    <a href="#cert-cisco" class="cert-item" onclick="showCertImage('cert-cisco')">
+                    </button>
+                    <button class="cert-item" onclick="showCertImage('cisco')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Cisco</span>
-                    </a>
-                    <a href="#cert-powershell" class="cert-item" onclick="showCertImage('cert-powershell')">
+                    </button>
+                    <button class="cert-item" onclick="showCertImage('powershell')">
                         <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Powershell</span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -660,37 +639,37 @@
                 </div>
 
                 <div class="info-box">
-                    <p>📄 <a href="#attestation-stage" onclick="showStageAttestation()">Attestation de stage disponible ici</a></p>
+                    <p>📄 <button onclick="showStageAttestation()">Attestation de stage disponible ici</button></p>
                 </div>
 
                 <h3 style="margin-top: 2rem;">Preuves du Stage</h3>
                 <div class="stage-images">
-                    <a href="#stage-mnef" class="stage-image-link" onclick="showStageImage('mnef')">
-                        <svg width="48" height="48" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                    <button class="stage-image-link" onclick="showStageImage('mnef')">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <circle cx="8.5" cy="8.5" r="1.5"></circle>
                             <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
-                        <p style="font-weight: 600; font-size: 0.875rem;">Étiquette MNEF</p>
-                    </a>
+                        <p>Étiquette MNEF</p>
+                    </button>
 
-                    <a href="#stage-libersign" class="stage-image-link" onclick="showStageImage('libersign')">
-                        <svg width="48" height="48" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                    <button class="stage-image-link" onclick="showStageImage('libersign')">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <circle cx="8.5" cy="8.5" r="1.5"></circle>
                             <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
-                        <p style="font-weight: 600; font-size: 0.875rem;">Installation LiberSign</p>
-                    </a>
+                        <p>Installation LiberSign</p>
+                    </button>
 
-                    <a href="#stage-fortigate" class="stage-image-link" onclick="showStageImage('fortigate')">
-                        <svg width="48" height="48" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                    <button class="stage-image-link" onclick="showStageImage('fortigate')">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <circle cx="8.5" cy="8.5" r="1.5"></circle>
                             <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
-                        <p style="font-weight: 600; font-size: 0.875rem;">Firewall Fortigate</p>
-                    </a>
+                        <p>Firewall Fortigate</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -701,91 +680,13 @@
                 <h2>Référentiel des Compétences - Rectoral</h2>
                 <p style="color: #64748b; margin-bottom: 1.5rem;">BTS Services Informatiques aux Organisations - Option SISR</p>
                 
-                <a href="#" class="download-btn" onclick="alert('Lien vers le PDF du tableau de synthèse E4')">
+                <button class="download-btn" onclick="downloadTableau()">
                     📥 Télécharger le tableau complet (PDF)
-                </a>
+                </button>
             </div>
 
             <div class="card">
                 <h3>Réalisations en milieu professionnel – Première année</h3>
-                <div style="overflow-x: auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Réalisation</th>
-                                <th>Contexte</th>
-                                <th>Date</th>
-                                <th>Compétences associées</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>GLPI - Gestion des incidents (Stage)</td>
-                                <td>Mairie de Darnétal</td>
-                                <td>26/05-21/06/2025</td>
-                                <td>Recenser et identifier les ressources numériques, Exploiter des référentiels, normes et standards, Collecter, suivre et orienter des demandes</td>
-                            </tr>
-                            <tr>
-                                <td>Installation / configuration postes</td>
-                                <td>Mairie de Darnétal</td>
-                                <td>Stage</td>
-                                <td>Recenser et identifier les ressources numériques, Mettre à disposition des utilisateurs un service informatique</td>
-                            </tr>
-                            <tr>
-                                <td>Site HTML - Validation W3C</td>
-                                <td>Projet scolaire</td>
-                                <td>03/02/2025</td>
-                                <td>Participer à la valorisation de l'image de l'organisation, Référencer les services en ligne</td>
-                            </tr>
-                            <tr>
-                                <td>Site CyberNews</td>
-                                <td>Projet scolaire</td>
-                                <td>03/02/2025</td>
-                                <td>Participer à la valorisation de l'image de l'organisation, Référencer les services en ligne</td>
-                            </tr>
-                            <tr>
-                                <td>Site Web en équipe - Trello</td>
-                                <td>Projet scolaire</td>
-                                <td>19/12/2024</td>
-                                <td>Travailler en mode projet, Planifier les activités, Évaluer les indicateurs de suivi</td>
-                            </tr>
-                            <tr>
-                                <td>TP - Hébergement site web</td>
-                                <td>Cours BTS</td>
-                                <td>03/03/2025</td>
-                                <td>Mettre à disposition des utilisateurs un service informatique, Déployer un service</td>
-                            </tr>
-                            <tr>
-                                <td>TP SQL - Grant/Revoke</td>
-                                <td>Cours BTS</td>
-                                <td>03/03/2025</td>
-                                <td>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</td>
-                            </tr>
-                            <tr>
-                                <td>Veille technologique</td>
-                                <td>Cours BTS</td>
-                                <td>09/09/2024</td>
-                                <td>Mettre en œuvre des outils et stratégies de veille informationnelle</td>
-                            </tr>
-                            <tr>
-                                <td>LinkedIn - Recherche de stage</td>
-                                <td>Personnel</td>
-                                <td>02/02/2025</td>
-                                <td>Gérer son identité professionnelle</td>
-                            </tr>
-                            <tr>
-                                <td>PCC - PIX / MOOC</td>
-                                <td>Plateforme</td>
-                                <td>01/01/2025</td>
-                                <td>Mettre en place son environnement d'apprentissage personnel</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Réalisations en milieu professionnel – Seconde année</h3>
                 <div style="overflow-x: auto;">
                     <table>
                         <thead>
@@ -807,25 +708,25 @@
                                 <td>GLPI Agent Windows/Linux</td>
                                 <td>Gestion de parc</td>
                                 <td>2026</td>
-                                <td>Recenser et identifier les ressources numériques, Exploiter des référentiels, normes et standards</td>
+                                <td>Recenser et identifier les ressources, Exploiter des référentiels</td>
                             </tr>
                             <tr>
                                 <td>ACL - Permissions avancées</td>
                                 <td>Admin système</td>
                                 <td>2026</td>
-                                <td>Mettre en place et vérifier les niveaux d'habilitation associés à un service</td>
+                                <td>Mettre en place et vérifier les niveaux d'habilitation</td>
                             </tr>
                             <tr>
                                 <td>Active Directory</td>
                                 <td>Win Server</td>
                                 <td>2026</td>
-                                <td>Mettre en place et vérifier les niveaux d'habilitation, Vérifier les conditions de la continuité d'un service</td>
+                                <td>Mettre en place les habilitations, Vérifier la continuité du service</td>
                             </tr>
                             <tr>
                                 <td>Serveur DHCP</td>
                                 <td>Win Server</td>
                                 <td>2026</td>
-                                <td>Mettre à disposition des utilisateurs un service informatique</td>
+                                <td>Mettre à disposition un service informatique</td>
                             </tr>
                             <tr>
                                 <td>CloneZilla - Déploiement images</td>
@@ -837,13 +738,13 @@
                                 <td>Man-in-the-Middle (MITM)</td>
                                 <td>TP Sécurité</td>
                                 <td>2026</td>
-                                <td>Vérifier le respect des règles d'utilisation des ressources numériques</td>
+                                <td>Vérifier le respect des règles d'utilisation des ressources</td>
                             </tr>
                             <tr>
                                 <td>Wazuh (SIEM)</td>
                                 <td>TP Cybersécurité</td>
                                 <td>2026</td>
-                                <td>Vérifier le respect des règles d'utilisation, Vérifier les conditions de la continuité d'un service</td>
+                                <td>Vérifier le respect des règles, Vérifier la continuité du service</td>
                             </tr>
                             <tr>
                                 <td>Cisco - Routing / Switching</td>
@@ -855,7 +756,7 @@
                                 <td>Installation Windows Server + client</td>
                                 <td>TP Systèmes</td>
                                 <td>2026</td>
-                                <td>Mettre à disposition des utilisateurs un service, Accompagner les utilisateurs</td>
+                                <td>Mettre à disposition un service, Accompagner les utilisateurs</td>
                             </tr>
                         </tbody>
                     </table>
@@ -946,32 +847,38 @@
 
     <script>
         function showSection(sectionName) {
-            // Masquer toutes les sections
-            document.querySelectorAll('[id^="section-"]').forEach(section => {
-                section.classList.add('section-hidden');
+            const sections = ['cv', 'stage', 'rectoral', 'veille'];
+            
+            sections.forEach(sec => {
+                const element = document.getElementById('section-' + sec);
+                if (element) {
+                    if (sec === sectionName) {
+                        element.classList.remove('section-hidden');
+                    } else {
+                        element.classList.add('section-hidden');
+                    }
+                }
             });
 
-            // Afficher la section sélectionnée
-            document.getElementById('section-' + sectionName).classList.remove('section-hidden');
-
-            // Mettre à jour les boutons actifs (desktop)
-            document.querySelectorAll('#desktop-nav button').forEach(btn => {
-                btn.classList.remove('active');
-            });
             const desktopButtons = document.querySelectorAll('#desktop-nav button');
-            const sectionIndex = ['cv', 'stage', 'rectoral', 'veille'].indexOf(sectionName);
-            if (desktopButtons[sectionIndex]) {
-                desktopButtons[sectionIndex].classList.add('active');
-            }
-
-            // Mettre à jour les boutons actifs (mobile)
-            document.querySelectorAll('#mobile-nav button').forEach(btn => {
-                btn.classList.remove('active');
-            });
             const mobileButtons = document.querySelectorAll('#mobile-nav button');
-            if (mobileButtons[sectionIndex]) {
-                mobileButtons[sectionIndex].classList.add('active');
-            }
+            const sectionIndex = sections.indexOf(sectionName);
+            
+            desktopButtons.forEach((btn, idx) => {
+                if (idx === sectionIndex) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            mobileButtons.forEach((btn, idx) => {
+                if (idx === sectionIndex) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         }
 
         function toggleMobileMenu() {
@@ -989,30 +896,109 @@
 
         function showCertImage(certId) {
             const messages = {
-                'cert-pix': 'Certification PIX - Niveau Indépendant 2 (416/895 points)\nObtenue le 04/12/2025 au Centre LTP La Châtaigneraie',
-                'cert-mooc': 'Certification MOC de l\'ANSSI (SecNum académie)\n4 modules complétés avec 100% de réussite le 22/01/2025',
-                'cert-rgpd': 'Certification RGPD - Score 100/100',
-                'cert-cisco': 'Certificat Cisco - Introduction à la cybersécurité\nComplété le 08/10/2025 via Cisco Networking Academy',
-                'cert-powershell': 'Certification PowerShell'
+                'pix': 'Certification PIX\n\nNiveau : Indépendant 2\nScore : 416/895 points\nDate : 04/12/2025\nCentre : LTP La Châtaigneraie',
+                'mooc': 'Certification MOC de l\'ANSSI\nSecNum académie\n\n4 modules complétés avec 100%\nDate : 22/01/2025',
+                'rgpd': 'Certification RGPD\n\nScore : 100/100\nNote la plus haute obtenue',
+                'cisco': 'Certificat Cisco\nIntroduction à la cybersécurité\n\nDate : 08/10/2025\nCisco Networking Academy',
+                'powershell': 'Certification PowerShell'
             };
-            alert(messages[certId] || 'Image de certification disponible');
-            return false;
+            alert(messages[certId]);
         }
 
         function showStageAttestation() {
-            alert('Attestation de stage - Mairie de Darnétal\nDu 26/05/2025 au 21/06/2025\nOption SISR - Campus La Châtaigneraie');
-            return false;
+            alert('Attestation de Stage\n\nÉtablissement : Mairie de Darnétal\nPériode : 26/05/2025 au 21/06/2025 (5 semaines)\nOption : SISR\nÉtudiant : Si Ali Abdelkader');
         }
 
         function showStageImage(imageId) {
             const messages = {
-                'mnef': 'Photo : Étiquette MNEF - Câblage réseau',
-                'libersign': 'Photo : Installation de l\'extension LiberSign pour la signature électronique',
-                'fortigate': 'Photo : Configuration du Firewall Fortigate'
+                'mnef': 'Photo de stage\n\nÉtiquette MNEF - Câblage réseau fibre optique',
+                'libersign': 'Photo de stage\n\nInstallation de l\'extension LiberSign\nPour la signature électronique des documents',
+                'fortigate': 'Photo de stage\n\nConfiguration du Firewall Fortigate\nGestion de la sécurité réseau'
             };
-            alert(messages[imageId] || 'Image du stage');
-            return false;
+            alert(messages[imageId]);
+        }
+
+        function downloadTableau() {
+            alert('Téléchargement du Tableau de Synthèse E4\n\nBTS SIO SISR\nCampus La Châtaigneraie\nÉtudiant : Si Ali Abdelkader');
         }
     </script>
 </body>
 </html>
+                                <th>Compétences associées</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GLPI - Gestion des incidents (Stage)</td>
+                                <td>Mairie de Darnétal</td>
+                                <td>26/05-21/06/2025</td>
+                                <td>Recenser et identifier les ressources numériques, Exploiter des référentiels, Collecter, suivre et orienter des demandes</td>
+                            </tr>
+                            <tr>
+                                <td>Installation / configuration postes</td>
+                                <td>Mairie de Darnétal</td>
+                                <td>Stage 2025</td>
+                                <td>Recenser et identifier les ressources numériques, Mettre à disposition des utilisateurs un service informatique</td>
+                            </tr>
+                            <tr>
+                                <td>Site HTML - Validation W3C</td>
+                                <td>Projet scolaire</td>
+                                <td>03/02/2025</td>
+                                <td>Participer à la valorisation de l'image, Référencer les services en ligne</td>
+                            </tr>
+                            <tr>
+                                <td>Site CyberNews</td>
+                                <td>Projet scolaire</td>
+                                <td>03/02/2025</td>
+                                <td>Participer à la valorisation de l'image, Référencer les services en ligne</td>
+                            </tr>
+                            <tr>
+                                <td>Site Web en équipe - Trello</td>
+                                <td>Projet scolaire</td>
+                                <td>19/12/2024</td>
+                                <td>Travailler en mode projet, Planifier les activités, Évaluer les indicateurs</td>
+                            </tr>
+                            <tr>
+                                <td>TP - Hébergement site web</td>
+                                <td>Cours BTS</td>
+                                <td>03/03/2025</td>
+                                <td>Mettre à disposition un service, Déployer un service</td>
+                            </tr>
+                            <tr>
+                                <td>TP SQL - Grant/Revoke</td>
+                                <td>Cours BTS</td>
+                                <td>03/03/2025</td>
+                                <td>Exploiter des référentiels, normes et standards</td>
+                            </tr>
+                            <tr>
+                                <td>Veille technologique</td>
+                                <td>Cours BTS</td>
+                                <td>09/09/2024</td>
+                                <td>Mettre en œuvre des outils de veille informationnelle</td>
+                            </tr>
+                            <tr>
+                                <td>LinkedIn - Recherche de stage</td>
+                                <td>Personnel</td>
+                                <td>02/02/2025</td>
+                                <td>Gérer son identité professionnelle</td>
+                            </tr>
+                            <tr>
+                                <td>PCC - PIX / MOOC</td>
+                                <td>Plateforme</td>
+                                <td>01/01/2025</td>
+                                <td>Mettre en place son environnement d'apprentissage personnel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Réalisations en milieu professionnel – Seconde année</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Réalisation</th>
+                                <th>Contexte</th>
+                                <th>Date</th>
