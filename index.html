@@ -12,17 +12,18 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
             min-height: 100vh;
+            color: #1e293b;
         }
 
         header {
             background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 50;
         }
 
         .header-content {
@@ -36,8 +37,8 @@
 
         .header-title h1 {
             font-size: 1.875rem;
+            font-weight: bold;
             color: #1e293b;
-            font-weight: 700;
         }
 
         .header-title p {
@@ -45,63 +46,58 @@
             color: #64748b;
         }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .menu-toggle:hover {
-            background: #f1f5f9;
-        }
-
         nav {
             display: flex;
             gap: 0.25rem;
         }
 
-        nav button {
+        .tab-button {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
             border: none;
             border-radius: 0.5rem;
-            background: none;
-            color: #334155;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
+            background: transparent;
+            color: #334155;
+            font-size: 14px;
         }
 
-        nav button:hover {
+        .tab-button:hover {
             background: #f1f5f9;
         }
 
-        nav button.active {
-            background: #10b981;
+        .tab-button.active {
+            background: #059669;
             color: white;
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            padding: 0.5rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 0.375rem;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #f1f5f9;
         }
 
         .mobile-nav {
             display: none;
-            padding: 0 1.5rem 1rem;
-        }
-
-        .mobile-nav.show {
-            display: flex;
+            padding: 1rem 1.5rem;
             flex-direction: column;
             gap: 0.5rem;
         }
 
-        .mobile-nav button {
-            width: 100%;
-            justify-content: flex-start;
+        .mobile-nav.open {
+            display: flex;
         }
 
         main {
@@ -110,33 +106,42 @@
             padding: 2rem 1.5rem;
         }
 
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
         .card {
             background: white;
             border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             margin-bottom: 2rem;
         }
 
         .card h2 {
             font-size: 1.875rem;
+            font-weight: bold;
             color: #1e293b;
             margin-bottom: 1rem;
         }
 
         .card h3 {
             font-size: 1.25rem;
+            font-weight: bold;
             color: #1e293b;
             margin-bottom: 1rem;
         }
 
-        .profile-text {
-            color: #334155;
-            line-height: 1.75;
+        .card p {
+            line-height: 1.6;
         }
 
         .timeline-item {
-            border-left: 4px solid #10b981;
+            border-left: 4px solid #059669;
             padding-left: 1rem;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
@@ -144,36 +149,36 @@
         }
 
         .timeline-item.blue {
-            border-left-color: #3b82f6;
+            border-left-color: #2563eb;
         }
 
         .timeline-period {
             font-size: 0.875rem;
-            color: #10b981;
+            color: #059669;
             font-weight: 600;
-            margin-bottom: 0.25rem;
         }
 
-        .timeline-item.blue .timeline-period {
-            color: #3b82f6;
+        .timeline-period.blue {
+            color: #2563eb;
         }
 
         .timeline-title {
             font-size: 1.125rem;
-            font-weight: 700;
+            font-weight: bold;
             color: #1e293b;
-            margin-bottom: 0.25rem;
+            margin-top: 0.25rem;
         }
 
         .timeline-subtitle {
             color: #64748b;
-            margin-bottom: 0.5rem;
+            margin-top: 0.25rem;
         }
 
         .timeline-list {
             list-style: disc;
-            margin-left: 1.25rem;
+            padding-left: 1.5rem;
             color: #334155;
+            margin-top: 0.5rem;
         }
 
         .timeline-list li {
@@ -190,29 +195,28 @@
         .skill-card {
             padding: 1rem;
             border-radius: 0.5rem;
-            background: #f0fdf4;
+        }
+
+        .skill-card.green {
+            background: #d1fae5;
         }
 
         .skill-card.blue {
-            background: #eff6ff;
+            background: #dbeafe;
         }
 
         .skill-card.purple {
-            background: #faf5ff;
+            background: #e9d5ff;
         }
 
-        .skill-icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 0.75rem;
-        }
-
-        .skill-card h3 {
-            font-size: 1rem;
+        .skill-title {
+            font-weight: bold;
+            color: #1e293b;
             margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
         }
 
-        .skill-card p {
+        .skill-desc {
             font-size: 0.875rem;
             color: #334155;
         }
@@ -231,35 +235,15 @@
             padding: 1rem;
             background: #f8fafc;
             border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1rem;
-            color: #334155;
-        }
-
-        .cert-item:hover {
-            background: #e2e8f0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .cert-icon {
-            color: #10b981;
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
         }
 
         .bullet-list {
-            margin-left: 1.5rem;
+            margin-top: 0.75rem;
         }
 
         .bullet-item {
             display: flex;
-            align-items: flex-start;
+            align-items: start;
             gap: 0.75rem;
             margin-bottom: 0.75rem;
         }
@@ -267,42 +251,23 @@
         .bullet-dot {
             width: 8px;
             height: 8px;
-            background: #10b981;
+            background: #059669;
             border-radius: 50%;
             margin-top: 0.5rem;
             flex-shrink: 0;
         }
 
         .info-box {
-            background: #f0fdf4;
             padding: 1rem;
+            background: #d1fae5;
             border-radius: 0.5rem;
             margin-top: 2rem;
-        }
-
-        .info-box p {
-            font-size: 0.875rem;
-            color: #334155;
-        }
-
-        .info-box button {
-            background: none;
-            border: none;
-            color: #10b981;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: underline;
-            font-size: 0.875rem;
-        }
-
-        .info-box button:hover {
-            color: #059669;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         th, td {
@@ -320,65 +285,38 @@
             background: #f8fafc;
         }
 
-        .section-hidden {
-            display: none;
+        .overflow-x {
+            overflow-x: auto;
         }
 
-        .download-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.75rem 1.5rem;
-            background: #10b981;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
+        .article-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
         }
 
-        .download-btn:hover {
-            background: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
-        }
-
-        .stage-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .stage-image-link {
-            display: block;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 0.5rem;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .stage-image-link:hover {
-            background: #e2e8f0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .stage-image-link svg {
-            margin: 0 auto 0.5rem;
-            color: #3b82f6;
-        }
-
-        .stage-image-link p {
-            color: #334155;
-            font-weight: 600;
+        .article-date {
             font-size: 0.875rem;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .article-source {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .article-content {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .article-content p {
+            font-size: 0.875rem;
+            color: #334155;
+            line-height: 1.6;
         }
 
         @media (max-width: 1024px) {
@@ -386,22 +324,18 @@
                 display: none;
             }
 
-            .menu-toggle {
+            .mobile-menu-btn {
                 display: block;
             }
 
-            .header-title h1 {
-                font-size: 1.5rem;
+            .mobile-nav .tab-button {
+                width: 100%;
             }
         }
 
         @media (max-width: 640px) {
-            .header-content {
-                padding: 1rem;
-            }
-
-            main {
-                padding: 1rem;
+            .header-title h1 {
+                font-size: 1.5rem;
             }
 
             .card {
@@ -410,18 +344,6 @@
 
             .card h2 {
                 font-size: 1.5rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            table {
-                font-size: 0.875rem;
-            }
-
-            th, td {
-                padding: 0.5rem;
             }
         }
     </style>
@@ -433,49 +355,53 @@
                 <h1>Si ali Abdelkader</h1>
                 <p>Étudiant BTS SIO SISR</p>
             </div>
-            
-            <button class="menu-toggle" onclick="toggleMobileMenu()">
-                <span id="menu-icon">☰</span>
+
+            <button class="mobile-menu-btn" id="menuBtn">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
             </button>
 
             <nav id="desktop-nav">
-                <button class="active" onclick="showSection('cv')">
-                    📄 CV
+                <button class="tab-button active" data-tab="cv">
+                    <span>📄 CV</span>
                 </button>
-                <button onclick="showSection('stage')">
-                    💼 Stage
+                <button class="tab-button" data-tab="stage">
+                    <span>💼 Stage</span>
                 </button>
-                <button onclick="showSection('rectoral')">
-                    📚 Rectoral
+                <button class="tab-button" data-tab="rectoral">
+                    <span>📚 Rectoral</span>
                 </button>
-                <button onclick="showSection('veille')">
-                    👁️ Veille Technologique
+                <button class="tab-button" data-tab="veille">
+                    <span>👁️ Veille Technologique</span>
                 </button>
             </nav>
         </div>
 
         <div class="mobile-nav" id="mobile-nav">
-            <button class="active" onclick="showSection('cv'); toggleMobileMenu()">
-                📄 CV
+            <button class="tab-button active" data-tab="cv">
+                <span>📄 CV</span>
             </button>
-            <button onclick="showSection('stage'); toggleMobileMenu()">
-                💼 Stage
+            <button class="tab-button" data-tab="stage">
+                <span>💼 Stage</span>
             </button>
-            <button onclick="showSection('rectoral'); toggleMobileMenu()">
-                📚 Rectoral
+            <button class="tab-button" data-tab="rectoral">
+                <span>📚 Rectoral</span>
             </button>
-            <button onclick="showSection('veille'); toggleMobileMenu()">
-                👁️ Veille Technologique
+            <button class="tab-button" data-tab="veille">
+                <span>👁️ Veille Technologique</span>
             </button>
         </div>
     </header>
 
     <main>
-        <!-- Section CV -->
-        <div id="section-cv">
+        <!-- CV Section -->
+        <div id="cv-section" class="section active">
             <div class="card">
                 <h2>Profil</h2>
-                <p class="profile-text">
+                <p style="color: #334155;">
                     Étudiant en BTS Services Informatiques aux Organisations option SISR (Solutions d'Infrastructure, 
                     Systèmes et Réseaux). Passionné par l'administration réseau et la cybersécurité, je souhaite 
                     développer mes compétences techniques au sein d'une équipe dynamique et contribuer à la gestion 
@@ -487,19 +413,17 @@
                 <h2>Formation</h2>
                 <div class="timeline-item">
                     <p class="timeline-period">Septembre 2024 - Juillet 2025</p>
-                    <h3 class="timeline-title">BTS SIO option SISR (2ème année)</h3>
+                    <p class="timeline-title">BTS SIO option SISR (2ème année)</p>
                     <p class="timeline-subtitle">Campus de La Châtaigneraie - Le Mesnil-Esnard</p>
                 </div>
-
                 <div class="timeline-item">
                     <p class="timeline-period">Septembre 2023 - Juillet 2024</p>
-                    <h3 class="timeline-title">BTS SIO option SISR (1ère année)</h3>
+                    <p class="timeline-title">BTS SIO option SISR (1ère année)</p>
                     <p class="timeline-subtitle">Campus de La Châtaigneraie - Le Mesnil-Esnard</p>
                 </div>
-
                 <div class="timeline-item">
                     <p class="timeline-period">Septembre 2022 - Juillet 2023</p>
-                    <h3 class="timeline-title">BAC Général : Mathématiques, Sciences de l'ingénieur</h3>
+                    <p class="timeline-title">BAC Général : Mathématiques, Sciences de l'ingénieur</p>
                     <p class="timeline-subtitle">Lycée Blaise Pascal</p>
                 </div>
             </div>
@@ -507,8 +431,8 @@
             <div class="card">
                 <h2>Expériences Professionnelles</h2>
                 <div class="timeline-item blue">
-                    <p class="timeline-period">Mai 2025 - Juin 2025</p>
-                    <h3 class="timeline-title">Stage de 1ʳᵉ année – Administration réseau</h3>
+                    <p class="timeline-period blue">Mai 2025 - Juin 2025</p>
+                    <p class="timeline-title">Stage de 1ʳᵉ année – Administration réseau</p>
                     <p class="timeline-subtitle">Mairie de Darnétal</p>
                     <ul class="timeline-list">
                         <li>Gestion du parc informatique</li>
@@ -516,10 +440,9 @@
                         <li>Assistance aux utilisateurs</li>
                     </ul>
                 </div>
-
                 <div class="timeline-item blue">
-                    <p class="timeline-period">Janvier 2024 - Avril 2025</p>
-                    <h3 class="timeline-title">Développeur web, Micro-entreprise</h3>
+                    <p class="timeline-period blue">Janvier 2024 - Avril 2025</p>
+                    <p class="timeline-title">Développeur web, Micro-entreprise</p>
                     <ul class="timeline-list">
                         <li>Développement front-end et back-end (HTML, CSS, PHP)</li>
                         <li>Gestion de bases de données</li>
@@ -531,34 +454,20 @@
             <div class="card">
                 <h2>Mes Compétences</h2>
                 <div class="skills-grid">
-                    <div class="skill-card">
-                        <svg class="skill-icon" fill="none" stroke="#10b981" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                        </svg>
-                        <h3>Réseaux & Sécurité</h3>
-                        <p>Cisco (ACL, Routage), Addressage IP</p>
+                    <div class="skill-card green">
+                        <div style="font-size: 32px;">🌐</div>
+                        <p class="skill-title">Réseaux & Sécurité</p>
+                        <p class="skill-desc">Cisco (ACL, Routage), Addressage IP</p>
                     </div>
-
                     <div class="skill-card blue">
-                        <svg class="skill-icon" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                        </svg>
-                        <h3>Systèmes & OS</h3>
-                        <p>Linux, Windows Server (DNS, AD, DHCP)</p>
+                        <div style="font-size: 32px;">🖥️</div>
+                        <p class="skill-title">Systèmes & OS</p>
+                        <p class="skill-desc">Linux, Windows Server (DNS, AD, DHCP)</p>
                     </div>
-
                     <div class="skill-card purple">
-                        <svg class="skill-icon" fill="none" stroke="#a855f7" stroke-width="2" viewBox="0 0 24 24">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                        <h3>Virtualisation & SIEM</h3>
-                        <p>VMware, Clonezilla, FOG, GLPI, Wazuh</p>
+                        <div style="font-size: 32px;">💻</div>
+                        <p class="skill-title">Virtualisation</p>
+                        <p class="skill-desc">VMware, Clonezilla, FOG, GLPI, Wazuh</p>
                     </div>
                 </div>
             </div>
@@ -566,55 +475,38 @@
             <div class="card">
                 <h2>Certifications</h2>
                 <div class="cert-grid">
-                    <button class="cert-item" onclick="showCertImage('pix')">
-                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="7"></circle>
-                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                        </svg>
-                        <span>Certification PIX</span>
-                    </button>
-                    <button class="cert-item" onclick="showCertImage('mooc')">
-                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="7"></circle>
-                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                        </svg>
-                        <span>Certification MOC de l'ANSSI</span>
-                    </button>
-                    <button class="cert-item" onclick="showCertImage('rgpd')">
-                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="7"></circle>
-                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                        </svg>
-                        <span>RGPD</span>
-                    </button>
-                    <button class="cert-item" onclick="showCertImage('cisco')">
-                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="7"></circle>
-                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                        </svg>
-                        <span>Cisco</span>
-                    </button>
-                    <button class="cert-item" onclick="showCertImage('powershell')">
-                        <svg class="cert-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="7"></circle>
-                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                        </svg>
-                        <span>Powershell</span>
-                    </button>
+                    <div class="cert-item">
+                        <span style="font-size: 24px;">🏆</span>
+                        <span style="color: #334155; font-weight: 500;">Certification PIX</span>
+                    </div>
+                    <div class="cert-item">
+                        <span style="font-size: 24px;">🏆</span>
+                        <span style="color: #334155; font-weight: 500;">Certification MOC de l'ANSSI</span>
+                    </div>
+                    <div class="cert-item">
+                        <span style="font-size: 24px;">🏆</span>
+                        <span style="color: #334155; font-weight: 500;">RGPD</span>
+                    </div>
+                    <div class="cert-item">
+                        <span style="font-size: 24px;">🏆</span>
+                        <span style="color: #334155; font-weight: 500;">Cisco</span>
+                    </div>
+                    <div class="cert-item">
+                        <span style="font-size: 24px;">🏆</span>
+                        <span style="color: #334155; font-weight: 500;">Powershell</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Section Stage -->
-        <div id="section-stage" class="section-hidden">
+        <!-- Stage Section -->
+        <div id="stage-section" class="section">
             <div class="card">
                 <h2>Stage de 1ʳᵉ année</h2>
-                <p class="timeline-period" style="margin-bottom: 0.5rem;">Mai 2025 - Juin 2025</p>
-                <p style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1.5rem;">
-                    Administration réseau - Mairie de Darnétal
-                </p>
+                <p class="timeline-period">Mai 2025 - Juin 2025</p>
+                <p class="timeline-title">Administration réseau - Mairie de Darnétal</p>
 
-                <h3>Synthèse des Activités</h3>
+                <h3 style="margin-top: 2rem;">Synthèse des Activités</h3>
                 <div class="bullet-list">
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
@@ -639,55 +531,21 @@
                 </div>
 
                 <div class="info-box">
-                    <p>📄 <button onclick="showStageAttestation()">Attestation de stage disponible ici</button></p>
-                </div>
-
-                <h3 style="margin-top: 2rem;">Preuves du Stage</h3>
-                <div class="stage-images">
-                    <button class="stage-image-link" onclick="showStageImage('mnef')">
-                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                        <p>Étiquette MNEF</p>
-                    </button>
-
-                    <button class="stage-image-link" onclick="showStageImage('libersign')">
-                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                        <p>Installation LiberSign</p>
-                    </button>
-
-                    <button class="stage-image-link" onclick="showStageImage('fortigate')">
-                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                        <p>Firewall Fortigate</p>
-                    </button>
+                    <p style="font-size: 0.875rem; color: #64748b;">📄 Attestation de stage disponible sur demande</p>
                 </div>
             </div>
         </div>
 
-        <!-- Section Rectoral -->
-        <div id="section-rectoral" class="section-hidden">
+        <!-- Rectoral Section -->
+        <div id="rectoral-section" class="section">
             <div class="card">
                 <h2>Référentiel des Compétences - Rectoral</h2>
-                <p style="color: #64748b; margin-bottom: 1.5rem;">BTS Services Informatiques aux Organisations - Option SISR</p>
-                
-                <button class="download-btn" onclick="downloadTableau()">
-                    📥 Télécharger le tableau complet (PDF)
-                </button>
+                <p style="color: #64748b;">BTS Services Informatiques aux Organisations - Option SISR</p>
             </div>
 
             <div class="card">
                 <h3>Réalisations en milieu professionnel – Première année</h3>
-                <div style="overflow-x: auto;">
+                <div class="overflow-x">
                     <table>
                         <thead>
                             <tr>
@@ -698,82 +556,59 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr><td>GLPI - Gestion des incidents (Stage)</td><td>Mairie de Darnétal</td><td>26/05-21/06/2025</td><td>Recenser et identifier les ressources numériques, Exploiter des référentiels, normes et standards adoptés par le prestataire informatique, Collecter, suivre et orienter des demandes, Traiter des demandes concernant les services réseau et système, applicatifs</td></tr>
+                            <tr><td>Installation / configuration postes</td><td>Mairie de Darnétal</td><td>Stage</td><td>Recenser et identifier les ressources numériques, Mettre à disposition des utilisateurs un service informatique</td></tr>
+                            <tr><td>Site HTML - Validation W3C</td><td>Projet scolaire</td><td>03/02/2025</td><td>Participer à la valorisation de l'image de l'organisation sur les médias numériques, Référencer les services en ligne de l'organisation</td></tr>
+                            <tr><td>Site CyberNews</td><td>Projet scolaire</td><td>03/02/2025</td><td>Participer à la valorisation de l'image de l'organisation sur les médias numériques, Référencer les services en ligne de l'organisation</td></tr>
+                            <tr><td>Site Web en équipe - Trello</td><td>Projet scolaire</td><td>19/12/2024</td><td>Travailler en mode projet, Planifier les activités, Évaluer les indicateurs de suivi d'un projet</td></tr>
+                            <tr><td>TP - Hébergement site web</td><td>Cours BTS</td><td>03/03/2025</td><td>Mettre à disposition des utilisateurs un service informatique, Déployer un service</td></tr>
+                            <tr><td>TP SQL - Grant/Revoke</td><td>Cours BTS</td><td>03/03/2025</td><td>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</td></tr>
+                            <tr><td>Veille technologique</td><td>Cours BTS</td><td>09/09/2024</td><td>Mettre en œuvre des outils et stratégies de veille informationnelle</td></tr>
+                            <tr><td>LinkedIn - Recherche de stage</td><td>Personnel</td><td>02/02/2025</td><td>Gérer son identité professionnelle</td></tr>
+                            <tr><td>PCC - PIX / MOOC</td><td>Plateforme</td><td>01/01/2025</td><td>Mettre en place son environnement d'apprentissage personnel</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Réalisations en milieu professionnel – Deuxième année</h3>
+                <div class="overflow-x">
+                    <table>
+                        <thead>
                             <tr>
-                                <td>Scripts PowerShell</td>
-                                <td>Cours / TP</td>
-                                <td>2026</td>
-                                <td>Mettre à disposition des utilisateurs un service informatique</td>
+                                <th>Réalisation</th>
+                                <th>Contexte</th>
+                                <th>Date</th>
+                                <th>Compétences associées</th>
                             </tr>
-                            <tr>
-                                <td>GLPI Agent Windows/Linux</td>
-                                <td>Gestion de parc</td>
-                                <td>2026</td>
-                                <td>Recenser et identifier les ressources, Exploiter des référentiels</td>
-                            </tr>
-                            <tr>
-                                <td>ACL - Permissions avancées</td>
-                                <td>Admin système</td>
-                                <td>2026</td>
-                                <td>Mettre en place et vérifier les niveaux d'habilitation</td>
-                            </tr>
-                            <tr>
-                                <td>Active Directory</td>
-                                <td>Win Server</td>
-                                <td>2026</td>
-                                <td>Mettre en place les habilitations, Vérifier la continuité du service</td>
-                            </tr>
-                            <tr>
-                                <td>Serveur DHCP</td>
-                                <td>Win Server</td>
-                                <td>2026</td>
-                                <td>Mettre à disposition un service informatique</td>
-                            </tr>
-                            <tr>
-                                <td>CloneZilla - Déploiement images</td>
-                                <td>TP Réseau</td>
-                                <td>2026</td>
-                                <td>Gérer des sauvegardes, Déployer un service</td>
-                            </tr>
-                            <tr>
-                                <td>Man-in-the-Middle (MITM)</td>
-                                <td>TP Sécurité</td>
-                                <td>2026</td>
-                                <td>Vérifier le respect des règles d'utilisation des ressources</td>
-                            </tr>
-                            <tr>
-                                <td>Wazuh (SIEM)</td>
-                                <td>TP Cybersécurité</td>
-                                <td>2026</td>
-                                <td>Vérifier le respect des règles, Vérifier la continuité du service</td>
-                            </tr>
-                            <tr>
-                                <td>Cisco - Routing / Switching</td>
-                                <td>TP Cisco</td>
-                                <td>2026</td>
-                                <td>Traiter des demandes concernant les services réseau et système</td>
-                            </tr>
-                            <tr>
-                                <td>Installation Windows Server + client</td>
-                                <td>TP Systèmes</td>
-                                <td>2026</td>
-                                <td>Mettre à disposition un service, Accompagner les utilisateurs</td>
-                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Scripts PowerShell</td><td>Cours / TP</td><td>2025</td><td>Mettre à disposition des utilisateurs un service informatique</td></tr>
+                            <tr><td>GLPI Agent Windows/Linux</td><td>Gestion de parc</td><td>2025</td><td>Recenser et identifier les ressources numériques, Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</td></tr>
+                            <tr><td>ACL - Permissions avancées</td><td>Admin système</td><td>2025</td><td>Mettre en place et vérifier les niveaux d'habilitation associés à un service</td></tr>
+                            <tr><td>Active Directory</td><td>Win Server</td><td>2025</td><td>Mettre en place et vérifier les niveaux d'habilitation associés à un service, Vérifier les conditions de la continuité d'un service informatique</td></tr>
+                            <tr><td>Serveur DHCP</td><td>Win Server</td><td>2025</td><td>Mettre à disposition des utilisateurs un service informatique</td></tr>
+                            <tr><td>CloneZilla - Déploiement images</td><td>TP Réseau</td><td>2025</td><td>Gérer des sauvegardes, Déployer un service</td></tr>
+                            <tr><td>Man-in-the-Middle (MITM)</td><td>TP Sécurité</td><td>2025</td><td>Vérifier le respect des règles d'utilisation des ressources numériques</td></tr>
+                            <tr><td>Wazuh (SIEM)</td><td>TP Cybersécurité</td><td>2025</td><td>Vérifier le respect des règles d'utilisation des ressources numériques, Vérifier les conditions de la continuité d'un service informatique</td></tr>
+                            <tr><td>Cisco - Routing / Switching</td><td>TP Cisco</td><td>2025</td><td>Traiter des demandes concernant les services réseau et système, applicatifs</td></tr>
+                            <tr><td>Installation Windows Server + client</td><td>TP Systèmes</td><td>2025</td><td>Mettre à disposition des utilisateurs un service informatique, Accompagner les utilisateurs dans la mise en place d'un service</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- Section Veille -->
-        <div id="section-veille" class="section-hidden">
+        <!-- Veille Section -->
+        <div id="veille-section" class="section">
             <div class="card">
                 <h2>Veille Technologique</h2>
-                <p style="font-size: 1.25rem; color: #10b981; font-weight: 600; margin-bottom: 1.5rem;">
-                    🧠 L'intelligence artificielle dans la cybersécurité
-                </p>
+                <p style="font-size: 1.25rem; color: #059669; font-weight: 600; margin-bottom: 1rem;">🧠 L'intelligence artificielle dans la cybersécurité</p>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Période de veille : Septembre 2024 → Décembre 2025</p>
 
                 <h3>Solutions basées sur l'IA</h3>
-                <div style="overflow-x: auto;">
+                <div class="overflow-x">
                     <table>
                         <thead>
                             <tr>
@@ -783,222 +618,110 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="font-weight: 600;">Darktrace</td>
-                                <td>IA comportementale auto-apprenante</td>
-                                <td>Analyse du trafic réseau, détection d'anomalies</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600;">CrowdStrike Falcon</td>
-                                <td>IA analytique + machine learning</td>
-                                <td>Analyse du trafic réseau, détection d'anomalies</td>
-                            </tr>
+                            <tr><td><strong>Darktrace</strong></td><td>IA comportementale auto-apprenante</td><td>Analyse du trafic réseau, détection d'anomalies</td></tr>
+                            <tr><td><strong>CrowdStrike Falcon</strong></td><td>IA analytique + machine learning</td><td>Analyse du trafic réseau, détection d'anomalies</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>Article 1</h3>
-                <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">
-                    Cybersécurité 2025 : l'IA redéfinit la menace
-                </p>
-                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem;">
-                    Date : 24 février 2025 | Source : CiberObs
-                </p>
-                
-                <div style="margin-bottom: 1rem;">
-                    <p style="color: #334155; margin-bottom: 0.5rem;">
-                        <strong>Résumé :</strong> L'intelligence artificielle est devenue une arme à double tranchant dans la cybersécurité. 
-                        Utilisée pour renforcer les défenses, elle est aussi exploitée par les cybercriminels pour des attaques plus 
-                        sophistiquées.
-                    </p>
-                </div>
+            <div class="card"><h3>Trend Micro affirme sa stratégie de sécurité en matière d'IA</h3><div class="article-header"><span class="article-date">📅 4 septembre 2024</span><span class="article-source">📍 Trend Micro</span></div><div class="article-content"><p>L'éditeur renforce sa plateforme de cybersécurité pour lutter contre les menaces dopées à l'IA. Nouveaux outils : détection des deepfakes vidéo et cyberattaques alimentées par l'IA.</p></div></div>
 
-                <div style="background: #f8fafc; padding: 1rem; border-radius: 0.5rem;">
-                    <p style="font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Analyse :</p>
-                    <ul style="color: #334155; font-size: 0.875rem; margin-left: 1.25rem;">
-                        <li style="margin-bottom: 0.5rem;"><strong>Enjeux :</strong> Adaptation des systèmes face aux attaques automatisées</li>
-                        <li style="margin-bottom: 0.5rem;"><strong>Risques :</strong> Augmentation des attaques ciblées difficiles à détecter</li>
-                        <li><strong>Opportunités :</strong> Développement de solutions de sécurité basées sur l'IA</li>
-                    </ul>
-                </div>
-            </div>
+            <div class="card"><h3>Trend Micro alerte sur l'émergence de jumeaux numériques malveillants</h3><div class="article-header"><span class="article-date">📅 19 décembre 2024</span><span class="article-source">📍 Trend Micro</span></div><div class="article-content"><p>Apparition possible de "digital twins" malveillants, des clones basés sur des données volées capables d'imiter l'identité d'une personne (style, écriture, voix). Menaces : escroqueries, fraude, manipulation.</p></div></div>
 
-            <div class="card">
-                <h3>Article 2</h3>
-                <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">
-                    Sommet pour l'action sur l'intelligence artificielle
-                </p>
-                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem;">
-                    Date : 11 février 2025 | Source : SGDSN
-                </p>
-                
-                <div>
-                    <p style="color: #334155;">
-                        <strong>Résumé :</strong> Ce sommet international a abordé les enjeux critiques de l'IA dans la 
-                        cybersécurité, mettant en avant la nécessité de cadres de confiance, de mécanismes d'évaluation des systèmes 
-                        d'IA et d'une coopération internationale renforcée.
-                    </p>
-                </div>
-            </div>
+            <div class="card"><h3>Publication du rapport ENISA Threat Landscape 2025</h3><div class="article-header"><span class="article-date">📅 1er janvier 2025</span><span class="article-source">📍 ENISA</span></div><div class="article-content"><p>L'IA devient centrale dans l'évolution des cybermenaces : attaques plus réutilisées, adaptatives, invisibles. Forte montée de l'ingénierie sociale et des malwares avancés.</p></div></div>
+
+            <div class="card"><h3>Sommet pour l'action sur l'IA à Paris</h3><div class="article-header"><span class="article-date">📅 10-11 février 2025</span><span class="article-source">📍 Sommet international (Paris)</span></div><div class="article-content"><p>L'Europe appelle à une "IA de confiance", compatible avec droits fondamentaux, résilience et cybersécurité. Renforcement des initiatives continentales pour réguler l'IA.</p></div></div>
+
+            <div class="card"><h3>Adval Tech Group paralysé par une cyberattaque</h3><div class="article-header"><span class="article-date">📅 2 mars 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Arrêt total des systèmes, production bloquée → forte vulnérabilité de l'industrie.</p></div></div>
+
+            <div class="card"><h3>Fuite de données à la Métropole du Grand Paris</h3><div class="article-header"><span class="article-date">📅 Mars 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>5 000 personnes touchées. Plainte déposée, enquête en cours.</p></div></div>
+
+            <div class="card"><h3>Étude SoSafe : 87 % des entreprises visées par des attaques IA</h3><div class="article-header"><span class="article-date">📅 6 mars 2025</span><span class="article-source">📍 SoSafe</span></div><div class="article-content"><p>Explosion du phishing multicanal (mail, voix, réseaux sociaux). Les IA internes sont même détournées.</p></div></div>
+
+            <div class="card"><h3>Slopsquatting : nouvelle menace cyber</h3><div class="article-header"><span class="article-date">📅 Avril 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Exploite les erreurs de code générées par l'IA pour injecter des modules malveillants.</p></div></div>
+
+            <div class="card"><h3>Fuites de données : Easy Cash & Indigo</h3><div class="article-header"><span class="article-date">📅 Avril 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Exposition de données via des prestataires → vulnérabilité des chaînes d'approvisionnement.</p></div></div>
+
+            <div class="card"><h3>Cloud européen : vers une régulation plus stricte</h3><div class="article-header"><span class="article-date">📅 Mai 2025</span><span class="article-source">📍 Union Européenne</span></div><div class="article-content"><p>L'UE veut réduire la dépendance à AWS, Microsoft, Google et favoriser un cloud souverain.</p></div></div>
+
+            <div class="card"><h3>Cyberattaque contre une mutuelle santé</h3><div class="article-header"><span class="article-date">📅 Mai 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Vol de milliers de données médicales sensibles → forte valeur sur le marché noir.</p></div></div>
+
+            <div class="card"><h3>Rapport Malwarebytes : l'IA accélère la cybercriminalité</h3><div class="article-header"><span class="article-date">📅 14 mai 2025</span><span class="article-source">📍 ThreatDown / Malwarebytes</span></div><div class="article-content"><p>Adoption massive d'IA générative par les cybercriminels : phishing IA, deepfakes, malwares autonomes. L'IA rend les attaques plus rapides, évolutives et furtives. Explosion des menaces : +700 % de deepfakes, phishing IA ultra ciblé, quishing (QR-codes piégés), smishing.</p></div></div>
+
+            <div class="card"><h3>Patch critique Cisco IOS</h3><div class="article-header"><span class="article-date">📅 Juin 2025</span><span class="article-source">📍 Cisco</span></div><div class="article-content"><p>Faille permettant exécution de code à distance. Mise à jour urgente.</p></div></div>
+
+            <div class="card"><h3>Partenariat Databricks × OpenAI</h3><div class="article-header"><span class="article-date">📅 Juin 2025</span><span class="article-source">📍 Databricks / OpenAI</span></div><div class="article-content"><p>Fusion big data + IA générative → nouvelles solutions avancées pour entreprises.</p></div></div>
+
+            <div class="card"><h3>Thales progresse sur la communication quantique</h3><div class="article-header"><span class="article-date">📅 Juillet 2025</span><span class="article-source">📍 Thales</span></div><div class="article-content"><p>Vers des communications impossibles à intercepter.</p></div></div>
+
+            <div class="card"><h3>Cloud écolo : certifications CNDCP</h3><div class="article-header"><span class="article-date">📅 Juillet 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Plusieurs datacenters français deviennent neutres en carbone.</p></div></div>
+
+            <div class="card"><h3>Trend Micro : Deepfakes et actes malveillants</h3><div class="article-header"><span class="article-date">📅 9 juillet 2025</span><span class="article-source">📍 Trend Micro</span></div><div class="article-content"><p>Deepfakes utilisés pour fraude, usurpation d'identité, chantage.</p></div></div>
+
+            <div class="card"><h3>Bouygues Telecom piraté : 6,4 M de clients</h3><div class="article-header"><span class="article-date">📅 Août 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Vol de données personnelles + coordonnées bancaires.</p></div></div>
+
+            <div class="card"><h3>Cyberattaque sur un réseau de transport européen</h3><div class="article-header"><span class="article-date">📅 Août 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Systèmes ferroviaires perturbés.</p></div></div>
+
+            <div class="card"><h3>NETSCOUT : l'IA augmente les cyberattaques</h3><div class="article-header"><span class="article-date">📅 28 août 2025</span><span class="article-source">📍 NETSCOUT via Euronews</span></div><div class="article-content"><p>+8 millions d'attaques en 2025, Europe en première ligne.</p></div></div>
+
+            <div class="card"><h3>Exercice national "Rempar25" (France)</h3><div class="article-header"><span class="article-date">📅 Septembre 2025</span><span class="article-source">📍 France</span></div><div class="article-content"><p>Simulation d'attaque massive → 5 000 participants.</p></div></div>
+
+            <div class="card"><h3>Appel mondial pour encadrer l'IA</h3><div class="article-header"><span class="article-date">📅 Septembre 2025</span><span class="article-source">📍 Actualité</span></div><div class="article-content"><p>Experts demandent des "lignes rouges" : armes autonomes, surveillance massive.</p></div></div>
+
+            <div class="card"><h3>ENISA Threat Landscape 2025</h3><div class="article-header"><span class="article-date">📅 1er octobre 2025</span><span class="article-source">📍 ENISA</span></div><div class="article-content"><p>Menaces diversifiées, IA de plus en plus centrale dans les attaques.</p></div></div>
+
+            <div class="card"><h3>UE — Services publics numériques vulnérables</h3><div class="article-header"><span class="article-date">📅 12 novembre 2025</span><span class="article-source">📍 Union Européenne</span></div><div class="article-content"><p>Manque de protections dans les administrations publiques → cible privilégiée.</p></div></div>
+
+            <div class="card"><h3>Trend Micro : automatisation totale du cybercrime en 2026</h3><div class="article-header"><span class="article-date">📅 25 novembre 2025</span><span class="article-source">📍 Trend Micro</span></div><div class="article-content"><p>Agents IA capables d'attaquer, exploiter et monétiser sans humain.</p></div></div>
         </div>
     </main>
 
     <script>
-        function showSection(sectionName) {
-            const sections = ['cv', 'stage', 'rectoral', 'veille'];
-            
-            sections.forEach(sec => {
-                const element = document.getElementById('section-' + sec);
-                if (element) {
-                    if (sec === sectionName) {
-                        element.classList.remove('section-hidden');
-                    } else {
-                        element.classList.add('section-hidden');
-                    }
-                }
-            });
-
-            const desktopButtons = document.querySelectorAll('#desktop-nav button');
-            const mobileButtons = document.querySelectorAll('#mobile-nav button');
-            const sectionIndex = sections.indexOf(sectionName);
-            
-            desktopButtons.forEach((btn, idx) => {
-                if (idx === sectionIndex) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+        // Gestion des onglets
+        function showTab(tabName) {
+            // Masquer toutes les sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
             });
             
-            mobileButtons.forEach((btn, idx) => {
-                if (idx === sectionIndex) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
+            // Afficher la section sélectionnée
+            document.getElementById(tabName + '-section').classList.add('active');
+            
+            // Mettre à jour les boutons actifs (desktop et mobile)
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('data-tab') === tabName) {
+                    button.classList.add('active');
                 }
             });
         }
 
+        // Gestion du menu mobile
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobile-nav');
-            const menuIcon = document.getElementById('menu-icon');
-            
-            if (mobileNav.classList.contains('show')) {
-                mobileNav.classList.remove('show');
-                menuIcon.textContent = '☰';
-            } else {
-                mobileNav.classList.add('show');
-                menuIcon.textContent = '✕';
-            }
+            mobileNav.classList.toggle('open');
         }
 
-        function showCertImage(certId) {
-            const messages = {
-                'pix': 'Certification PIX\n\nNiveau : Indépendant 2\nScore : 416/895 points\nDate : 04/12/2025\nCentre : LTP La Châtaigneraie',
-                'mooc': 'Certification MOC de l\'ANSSI\nSecNum académie\n\n4 modules complétés avec 100%\nDate : 22/01/2025',
-                'rgpd': 'Certification RGPD\n\nScore : 100/100\nNote la plus haute obtenue',
-                'cisco': 'Certificat Cisco\nIntroduction à la cybersécurité\n\nDate : 08/10/2025\nCisco Networking Academy',
-                'powershell': 'Certification PowerShell'
-            };
-            alert(messages[certId]);
-        }
+        // Écouteurs d'événements pour les boutons desktop
+        document.querySelectorAll('#desktop-nav .tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                showTab(tabName);
+            });
+        });
 
-        function showStageAttestation() {
-            alert('Attestation de Stage\n\nÉtablissement : Mairie de Darnétal\nPériode : 26/05/2025 au 21/06/2025 (5 semaines)\nOption : SISR\nÉtudiant : Si Ali Abdelkader');
-        }
+        // Écouteurs d'événements pour les boutons mobile
+        document.querySelectorAll('#mobile-nav .tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                showTab(tabName);
+                toggleMobileMenu();
+            });
+        });
 
-        function showStageImage(imageId) {
-            const messages = {
-                'mnef': 'Photo de stage\n\nÉtiquette MNEF - Câblage réseau fibre optique',
-                'libersign': 'Photo de stage\n\nInstallation de l\'extension LiberSign\nPour la signature électronique des documents',
-                'fortigate': 'Photo de stage\n\nConfiguration du Firewall Fortigate\nGestion de la sécurité réseau'
-            };
-            alert(messages[imageId]);
-        }
-
-        function downloadTableau() {
-            alert('Téléchargement du Tableau de Synthèse E4\n\nBTS SIO SISR\nCampus La Châtaigneraie\nÉtudiant : Si Ali Abdelkader');
-        }
+        // Écouteur pour le bouton du menu mobile
+        document.getElementById('menuBtn').addEventListener('click', toggleMobileMenu);
     </script>
 </body>
 </html>
-                                <th>Compétences associées</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>GLPI - Gestion des incidents (Stage)</td>
-                                <td>Mairie de Darnétal</td>
-                                <td>26/05-21/06/2025</td>
-                                <td>Recenser et identifier les ressources numériques, Exploiter des référentiels, Collecter, suivre et orienter des demandes</td>
-                            </tr>
-                            <tr>
-                                <td>Installation / configuration postes</td>
-                                <td>Mairie de Darnétal</td>
-                                <td>Stage 2025</td>
-                                <td>Recenser et identifier les ressources numériques, Mettre à disposition des utilisateurs un service informatique</td>
-                            </tr>
-                            <tr>
-                                <td>Site HTML - Validation W3C</td>
-                                <td>Projet scolaire</td>
-                                <td>03/02/2025</td>
-                                <td>Participer à la valorisation de l'image, Référencer les services en ligne</td>
-                            </tr>
-                            <tr>
-                                <td>Site CyberNews</td>
-                                <td>Projet scolaire</td>
-                                <td>03/02/2025</td>
-                                <td>Participer à la valorisation de l'image, Référencer les services en ligne</td>
-                            </tr>
-                            <tr>
-                                <td>Site Web en équipe - Trello</td>
-                                <td>Projet scolaire</td>
-                                <td>19/12/2024</td>
-                                <td>Travailler en mode projet, Planifier les activités, Évaluer les indicateurs</td>
-                            </tr>
-                            <tr>
-                                <td>TP - Hébergement site web</td>
-                                <td>Cours BTS</td>
-                                <td>03/03/2025</td>
-                                <td>Mettre à disposition un service, Déployer un service</td>
-                            </tr>
-                            <tr>
-                                <td>TP SQL - Grant/Revoke</td>
-                                <td>Cours BTS</td>
-                                <td>03/03/2025</td>
-                                <td>Exploiter des référentiels, normes et standards</td>
-                            </tr>
-                            <tr>
-                                <td>Veille technologique</td>
-                                <td>Cours BTS</td>
-                                <td>09/09/2024</td>
-                                <td>Mettre en œuvre des outils de veille informationnelle</td>
-                            </tr>
-                            <tr>
-                                <td>LinkedIn - Recherche de stage</td>
-                                <td>Personnel</td>
-                                <td>02/02/2025</td>
-                                <td>Gérer son identité professionnelle</td>
-                            </tr>
-                            <tr>
-                                <td>PCC - PIX / MOOC</td>
-                                <td>Plateforme</td>
-                                <td>01/01/2025</td>
-                                <td>Mettre en place son environnement d'apprentissage personnel</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Réalisations en milieu professionnel – Seconde année</h3>
-                <div style="overflow-x: auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Réalisation</th>
-                                <th>Contexte</th>
-                                <th>Date</th>
